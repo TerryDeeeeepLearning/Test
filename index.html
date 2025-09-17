@@ -73,6 +73,13 @@
   </main>
 </body>
 </html>
+const cards = document.querySelectorAll('.image-card');
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('active'); // 點一下切換 overlay 顯示
+  });
+});
+
 
 
 
