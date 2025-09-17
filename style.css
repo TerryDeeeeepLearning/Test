@@ -1,11 +1,14 @@
+@font-face {
+    font-family: NotoSansTC-ExtraLight;
+    src: url(NotoSansTC-ExtraLight.ttf);
+}
 body {
   margin: 0;
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: "NotoSansTC-ExtraLight", sans-serif;
   background-color: #fff;
   color: #000;
   line-height: 1.5;
 }
-
 header {
   position: fixed;
   top: 0;
@@ -58,11 +61,62 @@ h2 {
 
 .image-placeholder {
   width: 100%;
-  height: 160px;
-  background-color: #ccc;
+  height: auto;
+  display: block;
   margin-bottom: 16px;
+  border-radius: 4px;
+}
+.image-scroll {
+  display: flex;
+  gap: 12px;              /* 圖片之間的間距 */
+  overflow-x: auto;       /* 水平可捲動 */
+  scroll-snap-type: x mandatory; /* 捲動時自動對齊 */
+  padding-bottom: 8px;    /* 預留一點空間避免卷軸壓住圖片 */
+  border-radius: 4px;
 }
 
+.image-scroll img {
+  flex: 0 0 auto;         /* 不要被壓縮 */
+  width: 80%;             /* 每張圖寬度 (可改 70%, 90% 看效果) */
+  height: auto;           /* 保持比例 */
+  border-radius: 6px;
+  scroll-snap-align: start; /* 捲動對齊 */
+  border-radius: 4px;
+}
+.image-card {
+  position: relative;
+  flex: 0 0 auto;       /* 保持水平排列 */
+  width: 80%;           /* 控制每張圖片寬度 */
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+.image-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* 白色半透明 */
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  font-weight: bold;
+  border-radius: 6px;
+  opacity: 0;            /* 預設隱藏 */
+  transition: opacity 0.3s ease;
+}
+
+.image-card:hover .overlay {
+  opacity: 1;            /* 滑過時顯示 */
+}
 p {
   font-size: 12px;
   text-align: justify;
