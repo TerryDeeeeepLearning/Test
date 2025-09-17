@@ -71,6 +71,13 @@
     </p>
     <div class="divider"></div>
   </main>
+  <script>
+    document.querySelectorAll('.image-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
 const cards = document.querySelectorAll('.image-card');
@@ -79,6 +86,7 @@ cards.forEach(card => {
     card.classList.toggle('active'); // 點一下切換 overlay 顯示
   });
 });
+
 
 
 
