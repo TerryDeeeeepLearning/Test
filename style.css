@@ -96,6 +96,7 @@ h2 {
   display: block;
 }
 
+
 .image-card .overlay {
   position: absolute;
   top: 0;
@@ -113,7 +114,9 @@ h2 {
   opacity: 0;            /* 預設隱藏 */
   transition: opacity 0.3s ease;
 }
-
+.image-card.active .overlay {
+  opacity: 1;
+}
 .image-card:hover .overlay {
   opacity: 1;            /* 滑過時顯示 */
 }
